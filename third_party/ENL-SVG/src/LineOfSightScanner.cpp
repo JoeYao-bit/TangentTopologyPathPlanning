@@ -1,5 +1,5 @@
-#include "LineOfSightScanner.h"
-#include "Grid.h"
+#include "../Pathfinding/LineOfSightScanner.h"
+#include "../Pathfinding/Grid.h"
 
 namespace Pathfinding {
 

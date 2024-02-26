@@ -1,7 +1,7 @@
 #include <algorithm>
-#include "Grid.h"
-#include "RandomGridGenerator.h"
-#include "RandomNumberGenerator.h"
+#include "../Pathfinding/Grid.h"
+#include "../Pathfinding/RandomGridGenerator.h"
+#include "../Pathfinding/RandomNumberGenerator.h"
 #include <vector>
 
 namespace Pathfinding {

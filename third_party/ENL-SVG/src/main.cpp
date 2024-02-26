@@ -1,9 +1,9 @@
 #include <iostream>
-#include "Grid.h"
-#include "Drawer.h"
-#include "RandomGridGenerator.h"
-#include "ENLSVGAlgorithm.h"
-#include "PathfindingDataTypes.h"
+#include "../Pathfinding/Grid.h"
+#include "../Pathfinding/Drawer.h"
+#include "../Pathfinding/RandomGridGenerator.h"
+#include "../Pathfinding/ENLSVGAlgorithm.h"
+#include "../Pathfinding/PathfindingDataTypes.h"
 double initial_time, search_graph_time;
 int main() {
     int sizeX = 203;

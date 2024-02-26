@@ -1,6 +1,6 @@
-#include "ENLSVGGraph.h"
-#include "LineOfSightScanner.h"
-#include "Grid.h"
+#include "../Pathfinding/ENLSVGGraph.h"
+#include "../Pathfinding/LineOfSightScanner.h"
+#include "../Pathfinding/Grid.h"
 #include <algorithm>
 
 namespace Pathfinding {

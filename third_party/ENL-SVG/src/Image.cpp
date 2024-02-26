@@ -1,4 +1,4 @@
-#include "Image.h"
+#include "../Pathfinding/Image.h"
 
 /**
  * Credit goes to Daniel Beard's Programming Blog for the base code

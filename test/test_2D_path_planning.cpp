@@ -8,21 +8,16 @@
 
 #include "../freeNav-base/dependencies/2d_grid/text_map_loader.h"
 #include "../freeNav-base/dependencies/thread_pool.h"
+#include "../freeNav-base/dependencies/2d_grid/text_map_loader.h"
+#include "../freeNav-base/dependencies/2d_grid/picture_loader.h"
 #include "../freeNav-base/visualization/canvas/canvas.h"
 
-#include "../algorithm/surface_processor_LineScanner.h"
-
-#include "../freeNav-base/dependencies/2d_grid/picture_loader.h"
 #include "../algorithm/graph_construction/tangent_graph_build.h"
-
 #include "../algorithm/online_search/create_initial_paths_with_edge.h"
-
 #include "../algorithm/constraints/point_to_point_constraints.h"
 #include "../algorithm/constraints/edge_transfer_constraints.h"
 
-#include "../freeNav-base/dependencies/2d_grid/2d_ENLSVG_grid.h"
-
-#include "../freeNav-base/dependencies/2d_grid/text_map_loader.h"
+#include "../algorithm/2d_ENLSVG_grid.h"
 
 #include "../algorithm/online_search/breadth_first_search_with_edge.h"
 #include "../algorithm/online_search/depth_first_search_with_edge.h"
@@ -30,8 +25,9 @@
 #include "../algorithm/online_search/breadth_first_search_with_node.h"
 #include "../algorithm/online_search/depth_first_search_with_node.h"
 #include "../algorithm/online_search/create_initial_paths_with_node.h"
+#include "../algorithm/surface_processor_LineScanner.h"
 
-
+#include "../test/test_data.h"
 
 //#include "topologyPathPlanning/harrt_test.h"
 
@@ -116,7 +112,7 @@ int zoom_rate = 1;
 //  MapTestConfig_Enigma,
 //  MapTestConfig_Entanglement
 
-auto map_test_config = MapTestConfig_AR0205SR;//MapTestConfig_AR0205SR;
+auto map_test_config = MapTestConfig_Berlin_1_256;//MapTestConfig_AR0205SR;
 std::string vis_file_path    = map_test_config.at("vis_path");
 
 TextMapLoader loader(map_test_config.at("map_path"), is_char_occupied1);

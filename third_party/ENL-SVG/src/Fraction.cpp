@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include "Fraction.h"
+#include "../Pathfinding/Fraction.h"
 using namespace std;
 
 namespace Pathfinding {

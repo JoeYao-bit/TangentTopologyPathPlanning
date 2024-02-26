@@ -1,8 +1,8 @@
 #include <algorithm>
-#include "Drawer.h"
-#include "Grid.h"
-#include "Image.h"
-#include "ENLSVGGraph.h"
+#include "../Pathfinding/Drawer.h"
+#include "../Pathfinding/Grid.h"
+#include "../Pathfinding/Image.h"
+#include "../Pathfinding/ENLSVGGraph.h"
 
 namespace Pathfinding {
 

@@ -1,8 +1,8 @@
-#include "ENLSVGAlgorithm.h"
-#include "ENLSVGGraph.h"
-#include "LineOfSightScanner.h"
-#include "Grid.h"
-#include "IndirectHeap.h"
+#include "../Pathfinding/ENLSVGAlgorithm.h"
+#include "../Pathfinding/ENLSVGGraph.h"
+#include "../Pathfinding/LineOfSightScanner.h"
+#include "../Pathfinding/Grid.h"
+#include "../Pathfinding/IndirectHeap.h"
 #include <algorithm>
 #include "sys/time.h"
 

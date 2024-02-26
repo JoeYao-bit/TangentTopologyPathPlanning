@@ -1,4 +1,4 @@
-#include "IndirectHeap.h"
+#include "../Pathfinding/IndirectHeap.h"
 #include <iostream>
 
 namespace Pathfinding {

@@ -30,7 +30,7 @@ add_library(alg_lib ${alg_src})
 
 aux_source_directory(third_party/dynamicvoronoi third1_src)
 aux_source_directory(third_party/DynamicVoronoi2D third2_src)
-aux_source_directory(third_party/ENL-SVG third3_src)
+aux_source_directory(third_party/ENL-SVG/src third3_src)
 
 add_library(external_lib ${third1_src} ${third2_src} ${third3_src})
 

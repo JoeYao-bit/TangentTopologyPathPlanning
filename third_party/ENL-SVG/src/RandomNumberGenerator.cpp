@@ -1,4 +1,4 @@
-#include "RandomNumberGenerator.h"
+#include "../Pathfinding/RandomNumberGenerator.h"
 
 namespace Pathfinding {
 

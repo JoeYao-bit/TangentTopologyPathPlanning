@@ -106,23 +106,6 @@ SingleMapTestConfigs<2> configs = {
         MapTestConfig_Denver_2_512,
         MapTestConfig_London_0_256,
 
-        MapTestConfig_TheFrozenSea,  // pass, all distinctive test failed, after 2400, bywave every slow after 2300
-        MapTestConfig_FloodedPlains, // pass
-        MapTestConfig_Entanglement,// pass, all distinctive test failed, after 2400, run out of storage space
-        MapTestConfig_Aurora,
-
-        MapTestConfig_maze512_4_8,   // pass
-        MapTestConfig_maze512_4_0,   // pass
-        MapTestConfig_maze512_16_3,
-        MapTestConfig_maze512_8_6,
-
-        MapTestConfig_8room_002,
-        MapTestConfig_16room_001,
-        MapTestConfig_8room_009,
-        MapTestConfig_32room_003,
-
-//        MapTestConfig_random512_10_0,
-        //MapTestConfig_random512_35_2,
 };
 
 TEST(RIMJUMP, DATA_PROCESS) {
@@ -383,8 +366,9 @@ bool SingleMapTestDistinctiveTopology2D(const SingleMapTestConfig <2> &map_test_
 
     /* initialize rim jump start */
     gettimeofday(&tv_pre, &tz);
-    auto surface_processor = std::make_shared<SurfaceProcessor<2> >(dimension, is_occupied_func, set_occupied_func);
-    //auto surface_processor = std::make_shared<SurfaceProcess_ENLSVG_LineScanner>(dimension, is_occupied_func, set_occupied_func);
+    //SurfaceProcess_ENLSVG_LineScanner scanner(dimension, is_occupied_func, set_occupied_func);
+    //auto surface_processor = std::make_shared<SurfaceProcessor<2> >(dimension, is_occupied_func, set_occupied_func);
+    auto surface_processor = std::make_shared<SurfaceProcess_ENLSVG_LineScanner>(dimension, is_occupied_func, set_occupied_func);
 
 
     RoadMapGraphBuilder<2> *tgb = new RoadMapGraphBuilder<2>(surface_processor,
@@ -666,12 +650,12 @@ int main() {
             // -- real world city map
             MapTestConfig_Berlin_1_256, // ok
             MapTestConfig_Denver_2_256, // ok
-//            MapTestConfig_Boston_2_256, // ok
-//            MapTestConfig_Milan_2_256, // ok
-//            MapTestConfig_Moscow_2_256, // ok
-//            MapTestConfig_London_2_256, // ok
-//            MapTestConfig_Sydney_1_256, // ok
-//            MapTestConfig_Paris_0_256, // ok
+            MapTestConfig_Boston_2_256, // ok
+            MapTestConfig_Milan_2_256, // ok
+            MapTestConfig_Moscow_2_256, // ok
+            MapTestConfig_London_2_256, // ok
+            MapTestConfig_Sydney_1_256, // ok
+            MapTestConfig_Paris_0_256, // ok
             // -- computer game map
 //              MapTestConfig_AR0013SR, // RJ not ok
 //              MapTestConfig_AR0014SR, // RJ ok, RHCF not ok

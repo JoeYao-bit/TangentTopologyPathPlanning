@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Grid.h"
-#include "RandomNumberGenerator.h"
+#include "../Pathfinding/Grid.h"
+#include "../Pathfinding/RandomNumberGenerator.h"
 
 namespace Pathfinding {
 
