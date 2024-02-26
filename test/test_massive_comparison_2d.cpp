@@ -548,8 +548,8 @@ StartAndTargets<N> generateRandomStartAndTarget(const SingleMapTestConfig<2> map
 
     /* initialize rim jump start */
     gettimeofday(&tv_pre, &tz);
-    auto surface_processor = std::make_shared<SurfaceProcessor<2> >(dimension, is_occupied_func, set_occupied_func);
-    //auto surface_processor = std::make_shared<SurfaceProcess_ENLSVG_LineScanner>(dimension, is_occupied_func, set_occupied_func);
+    //auto surface_processor = std::make_shared<SurfaceProcessor<2> >(dimension, is_occupied_func, set_occupied_func);
+    auto surface_processor = std::make_shared<SurfaceProcess_ENLSVG_LineScanner>(dimension, is_occupied_func, set_occupied_func);
 
 
     RoadMapGraphBuilder<2> *tgb = new RoadMapGraphBuilder<2>(surface_processor,
