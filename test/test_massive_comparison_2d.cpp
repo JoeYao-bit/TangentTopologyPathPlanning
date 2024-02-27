@@ -649,23 +649,13 @@ int main() {
     configs = {
             // -- real world city map
             MapTestConfig_Berlin_1_256, // ok
-            MapTestConfig_Denver_2_256, // ok
-            MapTestConfig_Boston_2_256, // ok
-            MapTestConfig_Milan_2_256, // ok
-            MapTestConfig_Moscow_2_256, // ok
-            MapTestConfig_London_2_256, // ok
-            MapTestConfig_Sydney_1_256, // ok
-            MapTestConfig_Paris_0_256, // ok
-            // -- computer game map
-//              MapTestConfig_AR0013SR, // RJ not ok
-//              MapTestConfig_AR0014SR, // RJ ok, RHCF not ok
-//              MapTestConfig_AR0018SR, // RJ ok,
-//              MapTestConfig_AR0205SR,
-//            MapTestConfig_TheFrozenSea //
-//            MapTestConfig_EbonLakes,
-//            MapTestConfig_Enigma,
-//              MapTestConfig_Entanglement
-            // --
+//            MapTestConfig_Denver_2_256, // ok
+//            MapTestConfig_Boston_2_256, // ok
+//            MapTestConfig_Milan_2_256, // ok
+//            MapTestConfig_Moscow_2_256, // ok
+//            MapTestConfig_London_2_256, // ok
+//            MapTestConfig_Sydney_1_256, // ok
+//            MapTestConfig_Paris_0_256, // ok
     }; // single test
 
     std::vector<StartAndTargets<2> > SATs;

@@ -4,7 +4,7 @@
 #include "../Pathfinding/RandomGridGenerator.h"
 #include "../Pathfinding/ENLSVGAlgorithm.h"
 #include "../Pathfinding/PathfindingDataTypes.h"
-double initial_time, search_graph_time;
+double initial_time_ENLSVG, search_graph_time_ENLSVG;
 int main() {
     int sizeX = 203;
     int sizeY = 154;
@@ -24,10 +24,10 @@ int main() {
 
     for (size_t i=0;i<10000;++i) {
         //std::cout << "trial " << i << std::endl;
-        enlsvg.computePath(memory, rand()%sizeX, rand()%sizeY, rand()%sizeX, rand()%sizeY, initial_time, search_graph_time);
+        enlsvg.computePath(memory, rand()%sizeX, rand()%sizeY, rand()%sizeX, rand()%sizeY, initial_time_ENLSVG, search_graph_time_ENLSVG);
     }
     Pathfinding::Path path = enlsvg.computePath(memory, sx, sy, ex, ey,
-                                                initial_time, search_graph_time,&parentPtrs);
+                                                initial_time_ENLSVG, search_graph_time_ENLSVG,&parentPtrs);
 
     //std::cout << "Path hops : " << path.size() << std::endl;
     Pathfinding::Drawer drawer(grid, 1);
