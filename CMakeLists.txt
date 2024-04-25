@@ -41,8 +41,8 @@ aux_source_directory(third_party/ENL-SVG/src third3_src)
 
 add_library(external_lib ${third1_src} ${third2_src} ${third3_src})
 
-add_executable(test_tangent_graph_build test/test_2D_path_planning.cpp)
-target_link_libraries(test_tangent_graph_build freeNav-base alg_lib vis_lib external_lib)
+add_executable(test_2D_path_planning test/test_2D_path_planning.cpp)
+target_link_libraries(test_2D_path_planning freeNav-base alg_lib vis_lib external_lib)
 
 add_executable(test_massive_comparison test/test_massive_comparison_2d.cpp)
 target_link_libraries(test_massive_comparison freeNav-base alg_lib vis_lib external_lib)
