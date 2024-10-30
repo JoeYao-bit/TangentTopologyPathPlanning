@@ -22,13 +22,13 @@ namespace freeNav::Topo {
 
         explicit GeneralGraphPathPlannerWithNode(RoadMapGraphPtr<N>& tg) : tg_(tg),
                                                                            current_set_(tg->nodes_.size()) {
+            auto start_t = clock();
             data_ = std::make_shared<DynamicDataOfSearchWithNode<N> >(tg);
-            gettimeofday(&tv_pre, &tz);
             /* remember what inserted to the graph, to avoid traversal the whole graph to remove dynamic nodes */
             /* reset graph */
-            gettimeofday(&tv_after, &tz);
+            auto end_t = clock();
+            double reset_cost_ms = ((double)end_t - start_t) / CLOCKS_PER_SEC;
 
-            double reset_cost_ms = (tv_after.tv_sec - tv_pre.tv_sec) * 1e3 + (tv_after.tv_usec - tv_pre.tv_usec) / 1e3;
             std::cout << " G2P cost " << reset_cost_ms << " to init " << std::endl;
         }
 

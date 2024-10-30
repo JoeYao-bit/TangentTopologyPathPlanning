@@ -211,15 +211,15 @@ double max_time_cost = 10e3;
                                     rhcf.scene_->setRobot(start[0], start[1], 0); \
                                     rhcf.scene_->setGoal(target[0], target[1]); \
                                     rhcf.buildVoronoiDiagram(); \
-                                    gettimeofday(&tv_pre, &tz); \
+                                    auto start_t = clock();  \
                                     rhcf.buildNavigationGraph(); \
-                                    gettimeofday(&tv_after, &tz); \
-                                    double cost_ms1 = (tv_after.tv_sec - tv_pre.tv_sec)*1e3 + (tv_after.tv_usec - tv_pre.tv_usec)/1e3; \
+                                    auto end1_t = clock();  \
+                                    double cost_ms1 = 1000*((double)end1_t - start_t)/CLOCKS_PER_SEC; \
                                     gettimeofday(&tv_pre, &tz); \
                                     rhcf.K_ = num_of_path; \
                                     rhcf.findHomotopyClasses(); \
-                                    gettimeofday(&tv_after, &tz); \
-                                    double cost_ms2 = (tv_after.tv_sec - tv_pre.tv_sec)*1e3 + (tv_after.tv_usec - tv_pre.tv_usec)/1e3; \
+                                    auto end2_t = clock(); \
+                                    double cost_ms2 = 1000*((double)end2_t - end1_t)/CLOCKS_PER_SEC; \
                                     statistic.clear(); \
                                     if(rhcf.all_result_path_.empty()) { \
                                     statistic.push_back(MAX<PathLen>); \
@@ -249,14 +249,14 @@ double max_time_cost = 10e3;
                                     Pointis<2> &path, \
                                     Statistic &statistic, \
                                     OutputStream &output_stream) { \
-                                    gettimeofday(&tv_pre, &tz); \
+                                    auto start_t = clock(); \
                                     cv::Point start_cv(start[0], start[1]), target_cv(target[0], target[1]); \
                                     cvMulticlassPathPlanner<AStar> path_planner_a (background, is_occupied_func); \
                                     path_planner_a.max_time_cost = max_time_cost;                         \
                                     path_planner_a.find_paths (start_cv, target_cv, num_of_path, false); \
                                     const auto& raw_hstar_paths = path_planner_a.paths; \
-                                    gettimeofday(&tv_after, &tz); \
-                                    double cost_hstar = (tv_after.tv_sec - tv_pre.tv_sec)*1e3 + (tv_after.tv_usec - tv_pre.tv_usec)/1e3; \
+                                    auto end_t = clock(); \
+                                    double cost_hstar = 1000*((double)end_t - start_t)/CLOCKS_PER_SEC; \
                                     Paths<2> hstar_paths; \
                                     for(const auto& hstar_path : raw_hstar_paths) { \
                                     Path<2> path; \
@@ -295,14 +295,14 @@ double max_time_cost = 10e3;
                                     Pointis<2> &path, \
                                     Statistic &statistic, \
                                     OutputStream &output_stream) { \
-                                    gettimeofday(&tv_pre, &tz); \
+                                    auto start_t = clock(); \
                                     cv::Point start_cv(start[0], start[1]), target_cv(target[0], target[1]); \
                                     cvMulticlassPathPlanner<ThetaStar> path_planner_theta (background, is_occupied_func); \
                                     path_planner_theta.max_time_cost = max_time_cost;                         \
                                     path_planner_theta.find_paths (start_cv, target_cv, num_of_path, false); \
                                     const auto& raw_hstar_paths = path_planner_theta.paths; \
-                                    gettimeofday(&tv_after, &tz); \
-                                    double cost_hstar = (tv_after.tv_sec - tv_pre.tv_sec)*1e3 + (tv_after.tv_usec - tv_pre.tv_usec)/1e3; \
+                                    auto end_t = clock(); \
+                                    double cost_hstar = 1000*((double)end_t - start_t)/CLOCKS_PER_SEC; \
                                     Paths<2> hstar_paths; \
                                     for(const auto& hstar_path : raw_hstar_paths) { \
                                         Path<2> path; \
@@ -443,8 +443,8 @@ bool SingleMapTestDistinctiveTopology2D(const SingleMapTestConfig <2> &map_test_
     // ENL_SVG_path_planning
     distinctive_path_plannings = {
                                  RJ_TOPO(10),
-//                                 RJ_TOPO(20),
-//                                 RJ_TOPO(30),
+                                 RJ_TOPO(20),
+                                 RJ_TOPO(30),
 //                                 RJ_TOPO(40),
 //                                 RJ_TOPO(60),
 //                                 RJ_TOPO(80),
@@ -453,8 +453,8 @@ bool SingleMapTestDistinctiveTopology2D(const SingleMapTestConfig <2> &map_test_
 //                                 RJ_TOPO(200),
 #ifdef RHCF_MACRO
                                  RHCF_TOPO(10),
-//                                 RHCF_TOPO(20),
-//                                 RHCF_TOPO(30),
+                                 RHCF_TOPO(20),
+                                 RHCF_TOPO(30),
 //                                 RHCF_TOPO(40),
 //                                 RHCF_TOPO(60),
 //                                 RHCF_TOPO(80),
@@ -464,8 +464,8 @@ bool SingleMapTestDistinctiveTopology2D(const SingleMapTestConfig <2> &map_test_
 #endif
 
                                  HAStar_TOPO(10),
-//                                 HAStar_TOPO(20),
-//                                 HAStar_TOPO(30),
+                                 HAStar_TOPO(20),
+                                 HAStar_TOPO(30),
 //                                 HAStar_TOPO(40),
 //                                 HAStar_TOPO(60),
 //                                 HAStar_TOPO(80),
@@ -474,8 +474,8 @@ bool SingleMapTestDistinctiveTopology2D(const SingleMapTestConfig <2> &map_test_
 //                                 HAStar_TOPO(200),
 //
                                  HTStar_TOPO(10),
-//                                 HTStar_TOPO(20),
-//                                 HTStar_TOPO(30),
+                                 HTStar_TOPO(20),
+                                 HTStar_TOPO(30),
 //                                 HTStar_TOPO(40),
 //                                 HTStar_TOPO(60),
 //                                 HTStar_TOPO(80),
@@ -504,11 +504,11 @@ bool SingleMapTestDistinctiveTopology2D(const SingleMapTestConfig <2> &map_test_
     delete tgb;
     delete dimension;
     //SceneTest2DIndividual(map_test_config.at("config_path"), path_plannings, statisticss, output_streamss);
-    std::ofstream os(map_test_config.at("output_path"));
+    std::ofstream os(map_test_config.at("output_path"), std::ios::app);
     //os << "TYPE START_X START_Y TARGET_X TARGET_Y PATH_LENGTH RESET_TIME INITIAL_TIME SEARCH_TIME" << std::endl;
     for (const auto &multi_method_output : output_streamss) {
         for (const auto method_output : multi_method_output) {
-            os << method_output << std::endl;
+            os << method_output << " " << inflation_ratio << std::endl;
         }
     }
     os.close();
@@ -645,17 +645,21 @@ void saveStartAndTargetPairsFromFile(const StartAndTargets<N> sats, const std::s
     os.close();
 }
 
+/* METHOD  START_X START_Y TARGET_X TARGET_Y PATH_LENGTH 0 INIT_COST SEARCH_COST PATH_COUNT 0 INFLATION_RATIO
+ * RHCF_10 22      215     246      100      512.8       0 11.867    12.283      10         0
+ * */
+
 int main() {
     configs = {
             // -- real world city map
             MapTestConfig_Berlin_1_256, // ok
-//            MapTestConfig_Denver_2_256, // ok
-//            MapTestConfig_Boston_2_256, // ok
-//            MapTestConfig_Milan_2_256, // ok
-//            MapTestConfig_Moscow_2_256, // ok
-//            MapTestConfig_London_2_256, // ok
-//            MapTestConfig_Sydney_1_256, // ok
-//            MapTestConfig_Paris_0_256, // ok
+            MapTestConfig_Denver_2_256, // ok
+            MapTestConfig_Boston_2_256, // ok
+            MapTestConfig_Milan_2_256, // ok
+            MapTestConfig_Moscow_2_256, // ok
+            MapTestConfig_London_2_256, // ok
+            MapTestConfig_Sydney_1_256, // ok
+            MapTestConfig_Paris_0_256, // ok
     }; // single test
 
     std::vector<StartAndTargets<2> > SATs;
@@ -669,19 +673,23 @@ int main() {
 //            Sydney_1_256_SAT,
 //            Paris_0_256_SAT
 //    };
-
-    for(const auto& config : configs) {
-        auto start_and_targets = loadStartAndTargetPairsFromFile<2>(config.at("sat_path"));
-        if(start_and_targets.empty()) {
-            start_and_targets = generateRandomStartAndTarget<2>(config, 1.0, 10);
-            saveStartAndTargetPairsFromFile(start_and_targets, config.at("sat_path"));
+    //std::vector<double> inflation_ratios = {1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.8, 2.0, 2.5, 3.0, 3.5, 4.0};
+    std::vector<double> inflation_ratios = {1, 2, 3, 4};
+    for(const double& inflation_ratio : inflation_ratios) {
+        std::cout << "inflation_ratios = " << inflation_ratio << std::endl;
+        for (const auto &config : configs) {
+            StartAndTargets<2> start_and_targets;// = loadStartAndTargetPairsFromFile<2>(config.at("sat_path"));
+            if (start_and_targets.empty()) {
+                start_and_targets = generateRandomStartAndTarget<2>(config, inflation_ratio, 10);
+                saveStartAndTargetPairsFromFile(start_and_targets, config.at("sat_path"));
+            }
+            SATs.push_back(start_and_targets);
         }
-        SATs.push_back(start_and_targets);
+        for(int i=0; i<configs.size(); i++) {
+            SingleMapTestDistinctiveTopology2D(configs[i], inflation_ratio, SATs[i]);
+        }
     }
 
-    for(int i=0; i<configs.size(); i++) {
-        SingleMapTestDistinctiveTopology2D(configs[i], 1.0, SATs[i]);
-    }
     for(const auto& config : configs) {
         std::cout << config.at("map_name") << ":   \t" << std::endl;
         SingleMapTestDataAnalysis<2>(config, true);
